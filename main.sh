@@ -982,6 +982,7 @@ animate_dragon_breath() {
         "🐉 🔥                 "
         "🐉                    "
     )
+    
     for frame in "${frames[@]}"; do
         printf "\r  %s" "$frame"
         sleep 0.1
@@ -1950,7 +1951,7 @@ download_nethunter_rootless() {
     echo
     echo -e "${YELLOW}开始下载...${NC}"
     # Download logic here
- if command -v wget &>/dev/null; then
+    if command -v wget &>/dev/null; then
         local url="https://kali.download/nethunter-images/kali-2024.4/nethunter-2024.4-generic-arm64-kalifs-minimal.tar.xz"
         local output="${CACHE_DIR}/nethunter-rootless.tar.xz"
         wget -c -O "$output" "$url" 2>&1 || {
@@ -3745,7 +3746,7 @@ custom_install() {
                 fi
                 break
                 ;;
-   R|r) selections=""; echo -e "${YELLOW}选择已重置${NC}" ;;
+            R|r) selections=""; echo -e "${YELLOW}选择已重置${NC}" ;;
             0) return ;;
             *)
                 if [[ "$choice" =~ ^[1-8]+$ ]]; then
@@ -4590,7 +4591,7 @@ termux_optimization() {
         mkdir -p "$HOME/.termux" 2>/dev/null
         {
             echo "# Kali Dragon Deploy - Termux 优化配置"
-          echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]"
+            echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]"
             echo "terminal-transcript-rows = 10000"
             echo "bell-character = ignore"
             echo "use-black-ui = true"
